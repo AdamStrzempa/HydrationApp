@@ -25,7 +25,6 @@
     "react-native-firebase": "5.5.6",
     "react-native-gesture-handler": "1.4.1",
     "react-native-localize": "1.2.0",
-    "react-native-material-kit": "git://github.com/xinthink/react-native-material-kit.git#7678561b525267031ddc253f07ee880feb283f3e",
     "react-native-reanimated": "1.3.0",
     "react-navigation": "4.0.10",
     "react-navigation-hooks": "1.0.3",
