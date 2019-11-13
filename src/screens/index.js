@@ -9,7 +9,7 @@ const MainNavigator = createSwitchNavigator(
     HomeScreen: HomeScreen,
   },
   {
-    initialRouteName: 'LoginScreen',
+    initialRouteName: 'HomeScreen',
   }
 )
 
