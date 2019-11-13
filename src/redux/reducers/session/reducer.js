@@ -1,7 +1,7 @@
-import { LOGIN, LOGOUT } from './actions'
+import { START_TIME } from './actions'
 
 const initialState = () => ({
-  token: null
+  startTime: null
 })
 
 const keepDataState = currentState => ({})
@@ -13,8 +13,8 @@ export const resetState = state => ({
 
 export default function reducer(state = initialState(), action) {
   switch (action.type) {
-    case LOGIN:
-      return { ...state, token: action.payload }
+    case START_TIME:
+      return { ...state, startTime: action.payload }
 
     default:
       return state

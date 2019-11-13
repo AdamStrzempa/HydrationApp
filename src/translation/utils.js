@@ -1,3 +1,4 @@
+import React, { useState, useEffect, useRef } from 'react';
 import * as RNLocalize from 'react-native-localize'
 
 export const getCurrentLanguage = supportedLanguages => {
