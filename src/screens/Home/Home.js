@@ -1,23 +1,29 @@
 import React, { Component, Fragment, useState } from 'react'
 import PropTypes from 'prop-types'
-import { Button, TextInput, SafeAreaView, StyleSheet, View, Text, Image } from 'react-native'
-import GLASS_IMAGE from './images/glass.png'
-
+import { Button, TextInput, SafeAreaView, StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native'
+import { AnimatedCircularProgress } from 'react-native-circular-progress'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
-
 import i18next from '../../translation'
-
 import api from '../../network/api'
 import Wave from 'react-native-waveview'
 
-const propTypes = {}
+import GLASS_IMAGE from './images/glass.png'
 
 const Home = () => {
-
   return (
     <SafeAreaView style={styles.container}>
+      <TouchableOpacity style={styles.button}>
+        <AnimatedCircularProgress
+          size={200}
+          width={15}
+          fill={90}
+          tintColor="#62c2ff"
+          onAnimationComplete={() => console.log('onAnimationComplete')}
+          backgroundColor="#FFF" />
+        <Text style={styles.text}>Start</Text>
+      </TouchableOpacity>
       <Image
-        style={{ position: 'absolute', bottom: 100, swidth: 150, height: 200}}
+        style={{ position: 'absolute', bottom: 100, width: 150, height: 150}}
         source={GLASS_IMAGE}
         resizeMode='contain'
       />
@@ -41,8 +47,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+  button: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  text: {
+    position: 'absolute',
+    fontSize: 40,
+  },
   wave: {
-    width: 80,
+    width: 60,
     bottom: 105,
     aspectRatio: 1,
     overflow: 'hidden',
