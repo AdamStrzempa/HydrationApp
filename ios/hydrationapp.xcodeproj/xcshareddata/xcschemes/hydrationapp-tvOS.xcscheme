@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "PrimaryStructure-tvOS.app"
-               BlueprintName = "PrimaryStructure-tvOS"
-               ReferencedContainer = "container:PrimaryStructure.xcodeproj">
+               BuildableName = "hydrationapp-tvOS.app"
+               BlueprintName = "hydrationapp-tvOS"
+               ReferencedContainer = "container:hydrationapp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "PrimaryStructure-tvOSTests.xctest"
-               BlueprintName = "PrimaryStructure-tvOSTests"
-               ReferencedContainer = "container:PrimaryStructure.xcodeproj">
+               BuildableName = "hydrationapp-tvOSTests.xctest"
+               BlueprintName = "hydrationapp-tvOSTests"
+               ReferencedContainer = "container:hydrationapp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "PrimaryStructure-tvOSTests.xctest"
-               BlueprintName = "PrimaryStructure-tvOSTests"
-               ReferencedContainer = "container:PrimaryStructure.xcodeproj">
+               BuildableName = "hydrationapp-tvOSTests.xctest"
+               BlueprintName = "hydrationapp-tvOSTests"
+               ReferencedContainer = "container:hydrationapp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "PrimaryStructure-tvOS.app"
-            BlueprintName = "PrimaryStructure-tvOS"
-            ReferencedContainer = "container:PrimaryStructure.xcodeproj">
+            BuildableName = "hydrationapp-tvOS.app"
+            BlueprintName = "hydrationapp-tvOS"
+            ReferencedContainer = "container:hydrationapp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "PrimaryStructure-tvOS.app"
-            BlueprintName = "PrimaryStructure-tvOS"
-            ReferencedContainer = "container:PrimaryStructure.xcodeproj">
+            BuildableName = "hydrationapp-tvOS.app"
+            BlueprintName = "hydrationapp-tvOS"
+            ReferencedContainer = "container:hydrationapp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +113,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "PrimaryStructure-tvOS.app"
-            BlueprintName = "PrimaryStructure-tvOS"
-            ReferencedContainer = "container:PrimaryStructure.xcodeproj">
+            BuildableName = "hydrationapp-tvOS.app"
+            BlueprintName = "hydrationapp-tvOS"
+            ReferencedContainer = "container:hydrationapp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

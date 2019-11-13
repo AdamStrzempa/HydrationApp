@@ -1,4 +1,4 @@
-package com.primarystructure;
+package com.hydrationapp;
 
 import com.wix.detox.Detox;
 

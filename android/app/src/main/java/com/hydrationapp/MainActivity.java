@@ -1,4 +1,4 @@
-package com.primarystructure;
+package com.hydrationapp;
 
 import android.os.Bundle;
 
@@ -19,7 +19,7 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "PrimaryStructure";
+        return "hydrationapp";
     }
 
     @Override

@@ -15,6 +15,11 @@ module.exports = {
         ios: null,
         android: null
       }
+    },
+    'react-native-firebase': {
+      platforms: {
+        ios: null
+      }
     }
   }
 }

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "684503062704",
+    "firebase_url": "https://hydrationapp-56f16.firebaseio.com",
+    "project_id": "hydrationapp-56f16",
+    "storage_bucket": "hydrationapp-56f16.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:684503062704:android:e79abbbd44b1c9a2ea0375",
+        "android_client_info": {
+          "package_name": "com.hydrationapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "684503062704-bnd63uvrmfba8q4onufjuu73spv40j4v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByq3aTLwSv9i8pZVSmxsQgfWZVrIOoEY4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "684503062704-bnd63uvrmfba8q4onufjuu73spv40j4v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
