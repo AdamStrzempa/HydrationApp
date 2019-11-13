@@ -3,7 +3,7 @@ import Home from './Home'
 
 const HomeScreen = () => {
   const props = {}
-  return <Tests {...props} />
+  return <Home {...props} />
 }
 
 export default HomeScreen

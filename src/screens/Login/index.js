@@ -17,10 +17,10 @@ const LoginScreen = () => {
     navigate,
     reduxState
   }
-  return <Home {...props} />
+  return <Login {...props} />
 }
 
-HomeScreen.navigationOptions = {
+LoginScreen.navigationOptions = {
   header: null
 }
 

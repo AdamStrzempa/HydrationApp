@@ -1,6 +1,6 @@
 import React, { Component, Fragment, useState } from 'react'
 import PropTypes from 'prop-types'
-import { Button, TextInput, StyleSheet, View, Text } from 'react-native'
+import { Button, TextInput, SafeAreaView, StyleSheet, View, Text } from 'react-native'
 
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 
@@ -15,7 +15,7 @@ const Home = () => {
   const [isPassed, setIsPassed] = useState(false)
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <TextInput
         accessible
         accessibilityLabel={'PasswordInput'}
@@ -45,7 +45,7 @@ const Home = () => {
         2. Run your build with <RedText>yarn test:android</RedText> or{' '}
         <RedText>yarn test:ios.</RedText>
       </Text>
-    </View>
+    </SafeAreaView>
   )
 }
 

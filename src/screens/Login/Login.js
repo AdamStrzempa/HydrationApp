@@ -45,12 +45,12 @@ const Login = props => {
     firebase
       .auth()
       .signInWithEmailAndPassword("test@mail.com", "myCustomPassword")
-      .then(() => props.navigate('Tests'))
+      .then(() => props.navigate('HomeScreen'))
       .catch(error => console.error('error from Home: ', error))
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Welcome in Hydration App</Text>
       <View style={styles.view}>
         <Text style={styles.passwordText}>Password</Text>
@@ -64,7 +64,7 @@ const Login = props => {
           onPress={() => handleLogin('Simple Button pressed')}
         />
       </View>
-    </View>
+    </SafeAreaView>
   )
 }
 
