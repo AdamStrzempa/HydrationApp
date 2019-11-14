@@ -40,11 +40,9 @@ const Timer = props => {
       return
     }
     if (secondsToEnd < 0 && !timeToDrink) {
-      console.log('test2')
 
       setTimeToDrink(true)
     }
-    console.log('test', timeToDrink)
     if (props.startTime) {
       interval = setInterval(() => {
         const newDisplayTime = convertSeconds(secondsToEnd)

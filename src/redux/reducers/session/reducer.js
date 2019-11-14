@@ -17,7 +17,7 @@ export default function reducer(state = initialState(), action) {
     case START_TIME:
       return { ...state, startTime: action.payload }
     case ADD_HYDRATION:
-      return { ...state, currentHydration: action.payload }
+      return { ...state, currentHydration: 0, startTime: null }
 
     default:
       return state
