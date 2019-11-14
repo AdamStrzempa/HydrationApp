@@ -2,12 +2,17 @@ import React from 'react'
 import Home from './Home'
 import { useDispatch, useSelector } from 'react-redux'
 import { compose } from 'ramda'
-import { setStartTime, addHydration } from '../../redux/reducers/session/actions'
+import {
+  setStartTime,
+  addHydration,
+  setFirstHydration
+} from '../../redux/reducers/session/actions'
 
 const HomeScreen = () => {
   const dispatch = useDispatch()
   const startTime = useSelector(state => state.session.startTime)
   const hydration = useSelector(state => state.session.currentHydration)
+  const firstHydration = useSelector(state => state.session.firstHydration)
   const props = {
     setStartTime: compose(
       dispatch,
@@ -17,8 +22,13 @@ const HomeScreen = () => {
       dispatch,
       addHydration
     ),
+    setFirstHydration: compose(
+      dispatch,
+      setFirstHydration
+    ),
     startTime,
-    hydration
+    hydration,
+    firstHydration
   }
   return <Home {...props} />
 }

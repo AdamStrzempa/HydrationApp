@@ -1,5 +1,12 @@
 import React from 'react'
-import { SafeAreaView, StyleSheet, Text, Image, View } from 'react-native'
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  Image,
+  View,
+  Modal
+} from 'react-native'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 import Timer from './components/Timer'
 import Wave from 'react-native-waveview'
@@ -8,9 +15,18 @@ import GLASS_IMAGE from './images/glass.png'
 import THUMBS_UP_ICON from './images/thumbs-up.jpg'
 
 const Home = props => {
+  const checkModal = () => props.hydration >= 8 && props.firstHydration != null
+
   return (
     <SafeAreaView style={styles.container}>
-      {props.hydration > 8 ? (
+      <Modal
+        style={{ flex: 1 }}
+        animationType="slide"
+        transparent={false}
+        visible={checkModal()}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.')
+        }}>
         <View style={styles.iconView}>
           <Image
             style={styles.icon}
@@ -21,39 +37,34 @@ const Home = props => {
             You have completed your water demand
           </Text>
         </View>
-      ) : (
-        <>
-          <Text style={styles.nextGlassText}>To drink another glass</Text>
-          <Timer
-            setStartTime={props.setStartTime}
-            startTime={props.startTime}
-            addHydration={props.addHydration}
-            hydration={props.hydration}
-          />
-          <Text style={styles.infoText}>
-            You need to drink 2l of water a day
-          </Text>
-          <Image
-            style={styles.image}
-            source={GLASS_IMAGE}
-            resizeMode="contain"
-          />
-          <Wave
-            style={[styles.wave, { bottom: 205 + 10 * props.hydration }]}
-            H={30}
-            waveParams={[
-              { A: 10, T: 180, fill: '#62c2ff' },
-              { A: 15, T: 140, fill: '#0087dc' },
-              { A: 20, T: 100, fill: '#1aa7ff' }
-            ]}
-            animated={true}
-          />
-          <View style={[styles.fakeWater, { height: 10 * props.hydration }]} />
-          <Text style={styles.currentStateText}>
-            Your current state: {props.hydration}/8
-          </Text>
-        </>
-      )}
+      </Modal>
+      <>
+        <Text style={styles.nextGlassText}>To drink another glass</Text>
+        <Timer
+          setStartTime={props.setStartTime}
+          startTime={props.startTime}
+          addHydration={props.addHydration}
+          hydration={props.hydration}
+          setFirstHydration={props.setFirstHydration}
+          firstHydration={props.firstHydration}
+        />
+        <Text style={styles.infoText}>You need to drink 2l of water a day</Text>
+        <Image style={styles.image} source={GLASS_IMAGE} resizeMode="contain" />
+        <Wave
+          style={[styles.wave, { bottom: 205 + 10 * props.hydration }]}
+          H={30}
+          waveParams={[
+            { A: 10, T: 180, fill: '#62c2ff' },
+            { A: 15, T: 140, fill: '#0087dc' },
+            { A: 20, T: 100, fill: '#1aa7ff' }
+          ]}
+          animated={true}
+        />
+        <View style={[styles.fakeWater, { height: 10 * props.hydration }]} />
+        <Text style={styles.currentStateText}>
+          Your current state: {props.hydration}/8
+        </Text>
+      </>
     </SafeAreaView>
   )
 }

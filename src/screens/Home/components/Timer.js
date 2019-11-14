@@ -1,23 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { AnimatedCircularProgress } from 'react-native-circular-progress'
-import moment from 'moment'
-
-const convertSeconds = secondsToEnd => {
-  const duration = moment.duration(secondsToEnd, 'seconds')
-
-  const seconds = duration.seconds()
-  const minutes = duration.minutes()
-  const hours = duration.hours()
-
-  const sHours = hours < 10 ? `0${hours}:` : `${hours}:`
-  const sMinutes = minutes < 10 ? `0${minutes}:` : `${minutes}:`
-  const sSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`
-
-  const newTime = sHours + sMinutes + sSeconds
-
-  return newTime
-}
+import convertSeconds from '../../../utils/convertSeconds'
 
 const Timer = props => {
   const [secondsToEnd, setSeconds] = useState(7)
@@ -27,7 +11,6 @@ const Timer = props => {
   useEffect(() => {
     if (props.startTime) {
       const recoverTime = Date.now() - props.startTime
-
       const seconds = Math.floor(recoverTime / 1000)
       setSeconds(secondsToEnd - seconds)
     }
@@ -35,12 +18,15 @@ const Timer = props => {
 
   useEffect(() => {
     let interval = null
-    if (timeToDrink) {
-      clearInterval(interval)
-      return
-    }
+    
+    if (props.firstHydration) {
+        const oneDayInMs = 86400000
+        if (Date.now() - props.firstHydration > oneDayInMs) {
+          resetScene()
+          return
+        }
+      }
     if (secondsToEnd < 0 && !timeToDrink) {
-
       setTimeToDrink(true)
     }
     if (props.startTime) {
@@ -55,6 +41,14 @@ const Timer = props => {
     return () => clearInterval(interval)
   }, [secondsToEnd, timeToDrink, time, props.startTime])
 
+  const resetScene = () => {
+    props.setFirstHydration(null)
+    setTimeToDrink(false)
+    props.setStartTime(null)
+    props.addHydration(0)
+    setSeconds(7)
+  }
+
   const onPressCircular = () => {
     if (props.startTime) {
       if (timeToDrink) {
@@ -64,7 +58,11 @@ const Timer = props => {
         setSeconds(7)
       }
     } else {
-      props.setStartTime(Date.now())
+      const dateNow = Date.now()
+      if (props.firstHydration) {
+        props.setFirstHydration(dateNow)
+      }
+      props.setStartTime(dateNow)
     }
   }
 
