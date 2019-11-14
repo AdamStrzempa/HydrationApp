@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { Text, StyleSheet, TouchableOpacity, Platform } from 'react-native'
+import Notification from '../../../utils/Notification'
 import { AnimatedCircularProgress } from 'react-native-circular-progress'
 import convertSeconds from '../../../utils/convertSeconds'
 
 const Timer = props => {
-  const [secondsToEnd, setSeconds] = useState(7)
+  const [secondsToEnd, setSeconds] = useState(7200)
   const [time, setTime] = useState('')
   const [timeToDrink, setTimeToDrink] = useState(false)
 
@@ -18,15 +19,16 @@ const Timer = props => {
 
   useEffect(() => {
     let interval = null
-    
+
     if (props.firstHydration) {
-        const oneDayInMs = 86400000
-        if (Date.now() - props.firstHydration > oneDayInMs) {
-          resetScene()
-          return
-        }
+      const oneDayInMs = 86400000
+      if (Date.now() - props.firstHydration > oneDayInMs) {
+        resetScene()
+        return
       }
+    }
     if (secondsToEnd < 0 && !timeToDrink) {
+      if (Platform.OS == 'android') Notification()
       setTimeToDrink(true)
     }
     if (props.startTime) {
@@ -46,7 +48,7 @@ const Timer = props => {
     setTimeToDrink(false)
     props.setStartTime(null)
     props.addHydration(0)
-    setSeconds(7)
+    setSeconds(7200)
   }
 
   const onPressCircular = () => {
@@ -55,11 +57,11 @@ const Timer = props => {
         setTimeToDrink(false)
         props.setStartTime(Date.now())
         props.addHydration(props.hydration + 1)
-        setSeconds(7)
+        setSeconds(7200)
       }
     } else {
       const dateNow = Date.now()
-      if (props.firstHydration) {
+      if (!props.firstHydration) {
         props.setFirstHydration(dateNow)
       }
       props.setStartTime(dateNow)

@@ -14,6 +14,12 @@ module.exports = {
       platforms: {
         ios: null
       }
+    },
+    'react-native-android-local-notification': {
+      platforms: {
+        android: null,
+        ios: null
+      }
     }
   }
 }

@@ -1,50 +1,23 @@
-import React, { Component, Fragment } from 'react'
-import PropTypes from 'prop-types'
+import React, { useState } from 'react'
 import {
   SafeAreaView,
   StyleSheet,
-  ScrollView,
   View,
   Text,
   Button,
-  Dimensions,
-  TextInput,
-  StatusBar,
-  TouchableOpacity
+  TextInput
 } from 'react-native'
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions
-} from 'react-native/Libraries/NewAppScreen'
-
-import i18next from '../../translation'
-
-import api from '../../network/api'
 
 import firebase from 'react-native-firebase'
 
-const { width } = Dimensions.get('window')
-
-const propTypes = {}
-
 const Login = props => {
-  const handleSignUp = () => {
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword("test@mail.com", "myCustomPassword")
-      .then(() => console.warn('done'))
-      .catch(error => console.error('error from Home: ', error))
-  }
+  const [text, setText] = useState('')
 
   const handleLogin = () => {
     // const { email, pasword } = this.state
     firebase
       .auth()
-      .signInWithEmailAndPassword("test@mail.com", "myCustomPassword")
+      .signInWithEmailAndPassword("test@mail.com", text)
       .then(() => props.navigate('HomeScreen'))
       .catch(error => console.error('error from Home: ', error))
   }
@@ -56,8 +29,9 @@ const Login = props => {
         <Text style={styles.passwordText}>Password</Text>
         <TextInput
           style={styles.textInput}
-          // onChangeText={text => onChangeText(text)}
-          // value={value}
+          secureTextEntry
+          onChangeText={text => setText(text)}
+          value={text}
         />
         <Button
           title="Login"
